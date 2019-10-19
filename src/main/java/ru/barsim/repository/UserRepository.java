@@ -23,7 +23,7 @@ public class UserRepository {
         return jdbcTemplate.queryForObject(sql,new Object[]{id},ROW_MAPPER);
     }
     public List<User> getAllUsers(){
-        String sql = "SELECT * FROM fb_usr";
+        String sql = "SELECT ID,FIO FROM fb_usr order by FIO";
         return jdbcTemplate.query(sql,ROW_MAPPER);
     }
 }
