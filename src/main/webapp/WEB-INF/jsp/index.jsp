@@ -5,99 +5,80 @@
 <html>
 <head>
 <title>Вход-выход</title>
- <link href="css/main.css" rel="stylesheet">
+ <link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
-    <c:forEach var="user" items="${users}">
-    <div>
-        ${user.FIO}
-    </div>
-    </c:forEach>
-    <h2>Responsive Table</h2>
+    <p>Укажите месяц <input type="month" name="month"></p>
+    <h2></h2>
     <div class="table-wrapper">
+    
         <table class="fl-table">
             <thead>
+            <tr colspan="35">
+                <th colspan="35">Таблица посещаемости</th>
+            </tr>
             <tr>
-                <th>Header 1</th>
-                <th>Header 2</th>
-                <th>Header 3</th>
-                <th>Header 4</th>
-                <th>Header 5</th>
+                <th>ФИО</th>
+                <th>-</th>
+                <th>03.10</th>
+                <th>04.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
+                <th>05.10</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Content 1</td>
-                <td>Content 1</td>
-                <td>Content 1</td>
-                <td>Content 1</td>
-                <td>Content 1</td>
-            </tr>
-            <tr>
-                <td>Content 2</td>
-                <td>Content 2</td>
-                <td>Content 2</td>
-                <td>Content 2</td>
-                <td>Content 2</td>
-            </tr>
-            <tr>
-                <td>Content 3</td>
-                <td>Content 3</td>
-                <td>Content 3</td>
-                <td>Content 3</td>
-                <td>Content 3</td>
-            </tr>
-            <tr>
-                <td>Content 4</td>
-                <td>Content 4</td>
-                <td>Content 4</td>
-                <td>Content 4</td>
-                <td>Content 4</td>
-            </tr>
-            <tr>
-                <td>Content 5</td>
-                <td>Content 5</td>
-                <td>Content 5</td>
-                <td>Content 5</td>
-                <td>Content 5</td>
-            </tr>
-            <tr>
-                <td>Content 6</td>
-                <td>Content 6</td>
-                <td>Content 6</td>
-                <td>Content 6</td>
-                <td>Content 6</td>
-            </tr>
-            <tr>
-                <td>Content 7</td>
-                <td>Content 7</td>
-                <td>Content 7</td>
-                <td>Content 7</td>
-                <td>Content 7</td>
-            </tr>
-            <tr>
-                <td>Content 8</td>
-                <td>Content 8</td>
-                <td>Content 8</td>
-                <td>Content 8</td>
-                <td>Content 8</td>
-            </tr>
-            <tr>
-                <td>Content 9</td>
-                <td>Content 9</td>
-                <td>Content 9</td>
-                <td>Content 9</td>
-                <td>Content 9</td>
-            </tr>
-            <tr>
-                <td>Content 10</td>
-                <td>Content 10</td>
-                <td>Content 10</td>
-                <td>Content 10</td>
-                <td>Content 10</td>
-            </tr>
+            <c:forEach var="user" items="${users}">
+                    <tr>
+                        <td rowspan="3">${user.FIO}</td>
+                        <td>Вход</td>
+                        <td>null</td>
+                        <td>Null</td>
+                        <td>Null</td>
+                    </tr> 
+                    <tr>
+                        <td>Выход</td>
+                        <td>Null</td>
+                        <td>Null</td>
+                        <td>Null</td>
+                    </tr> 
+                    <tr>
+                        <td>Итог</td>
+                        <td>Null</td>
+                        <td>Null</td>
+                        <td>Null</td>
+                    </tr>
+            </c:forEach> 
             <tbody>
         </table>
+        
     </div>
 </body>
 </html>
