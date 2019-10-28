@@ -8,7 +8,11 @@
  <link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
-    <p>Укажите месяц <input type="month" name="month"></p>
+    <form action="/get" method="GET">
+    <p>Укажите год <input type="text" name="year"></p>
+    <p>Укажите месяц <input type="text" name="month"></p>
+    <p><input type="submit" value="Посмотреть"></p>
+    </form>
     <h2></h2>
     <div class="table-wrapper">
     
@@ -78,7 +82,6 @@
             </c:forEach> 
             <tbody>
         </table>
-        
     </div>
 </body>
 </html>
