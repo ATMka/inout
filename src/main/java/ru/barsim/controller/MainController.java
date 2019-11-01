@@ -20,11 +20,11 @@ public class MainController {
     ;    return modelAndView;
     }
 
-    @PostMapping("/get")
+    @PostMapping("/")
     public ModelAndView indexPost(ModelAndView modelAndView, @RequestParam String year, @RequestParam String month){
         modelAndView.addObject("users", userService.getAllUsers());
         modelAndView.setViewName("index");
-        ;    return modelAndView;
+        return modelAndView;
     }
 
 }
