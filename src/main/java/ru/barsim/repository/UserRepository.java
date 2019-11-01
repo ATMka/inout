@@ -11,6 +11,7 @@ import ru.barsim.dto.User;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -29,15 +30,21 @@ public class UserRepository {
             resultSet.getString("dt_max")
     ));
 
-    private User getUser(Long id){
-        String sql = "select fb_usr.id, fb_usr.fio from fb_usr where fb_usr.id = ?";
-        return jdbcTemplate.queryForObject(sql,new Object[]{id},ROW_MAPPER);
-    }
-
-    public List<User> getAllUsers() {
-        String sql = "SELECT fb_usr.id, fb_usr.fio FROM fb_usr";
+    public List<User> getAllUsersForDate(LocalDate date) {
+        DateFormat dt = new SimpleDateFormat("dd.MM.yyyy");
+        String sql = "SELECT fb_evn.usr,MIN(fb_evn.dt) as dt_min, MAX(fb_evn.dt) as dt_max FROM fb_evn " +
+                "where fb_evn.evn in ('2','5')" +
+                "group by fb_evn.usr";
         return jdbcTemplate.query(sql,ROW_MAPPER);
     }
+
+    private User getUserFIO(User user){
+        String sql = "select fb_usr.fio from fb_usr where fb_usr.id = ?";
+        user.setFIO(jdbcTemplate.queryForObject(sql,new Object[]{user.getId()},ROW_MAPPER).getFIO());
+        return user;
+    }
+
+
 
 
     public User getUserInDay(User user, LocalDate date) {
@@ -55,8 +62,7 @@ public class UserRepository {
         namedParameters.addValue("usr", user.getId());
         namedParameters.addValue("localdate", dt.format(date));
         User tmpUser = namedParameterJdbcTemplate.query(sql,ROW_MAPPER_FOR_DAY).get(0);
-        user.setDtMin(tmpUser.getDtMin());
-        user.setDtMax(tmpUser.getDtMax());
+
         return user;
     }
 

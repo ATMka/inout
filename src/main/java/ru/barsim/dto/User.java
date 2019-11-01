@@ -1,14 +1,13 @@
 package ru.barsim.dto;
 
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDateTime;
+
 
 public class User {
     private long id;
     private String FIO;
-    private HashMap<LocalDate,String> dtMin;
-    private HashMap<LocalDate,String> dtMax;
+    private LocalDateTime dtMin;
+    private LocalDateTime dtMax;
 
     public User(long id) {
         this.id = id;
@@ -38,19 +37,19 @@ public class User {
         this.FIO = FIO;
     }
 
-    public HashMap<LocalDate, String> getDtMin() {
+    public LocalDateTime getDtMin() {
         return dtMin;
     }
 
-    public void setDtMin(HashMap<LocalDate, String> dtMin) {
+    public void setDtMin(LocalDateTime dtMin) {
         this.dtMin = dtMin;
     }
 
-    public HashMap<LocalDate, String> getDtMax() {
+    public LocalDateTime getDtMax() {
         return dtMax;
     }
 
-    public void setDtMax(HashMap<LocalDate, String> dtMax) {
+    public void setDtMax(LocalDateTime dtMax) {
         this.dtMax = dtMax;
     }
 }
